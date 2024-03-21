@@ -7,18 +7,21 @@ class MIMEType
 
     public static function getMIMETypeByExtension($extension, $default = null)
     {
+        $extension = strtolower($extension);
         $extension = trim($extension, '.');
-        return isset(self::$data[$extension]) ? self::$data[$extension] : $default;
+        return isset (self::$data[$extension]) ? self::$data[$extension] : $default;
     }
 
     public static function getExtensionByMIMEType($MIMEType, $default = null)
     {
+        $MIMEType = strtolower($MIMEType);
         $map = array_flip(self::$data);
-        return isset($map[$MIMEType]) ? $map[$MIMEType] : $default;
+        return isset ($map[$MIMEType]) ? $map[$MIMEType] : $default;
     }
 
     // 一开始的后缀
     private static $data = [
+        '3gp' => 'video/3gpp',
         'ai' => 'application/postscript',
         'aif' => 'audio/x-aiff',
         'aifc' => 'audio/x-aiff',
@@ -53,6 +56,7 @@ class MIMEType
         'etx' => 'text/x-setext',
         'exe' => 'application/octet-stream',
         'ez' => 'application/andrew-inset',
+        'flv' => 'video/x-flv',
         'gif' => 'image/gif',
         'gtar' => 'application/x-gtar',
         'hdf' => 'application/x-hdf',
@@ -72,6 +76,7 @@ class MIMEType
         'lha' => 'application/octet-stream',
         'lzh' => 'application/octet-stream',
         'm3u' => 'audio/x-mpegurl',
+        'm3u8' => 'application/x-mpegurl',
         'man' => 'application/x-troff-man',
         'me' => 'application/x-troff-me',
         'mesh' => 'model/mesh',
@@ -82,6 +87,7 @@ class MIMEType
         'movie' => 'video/x-sgi-movie',
         'mp2' => 'audio/mpeg',
         'mp3' => 'audio/mpeg',
+        'mp4' => 'video/mp4',
         'mpe' => 'video/mpeg',
         'mpeg' => 'video/mpeg',
         'mpg' => 'video/mpeg',
@@ -161,6 +167,7 @@ class MIMEType
         'wmlc' => 'application/vnd.wap.wmlc',
         'wmls' => 'text/vnd.wap.wmlscript',
         'wmlsc' => 'application/vnd.wap.wmlscriptc',
+        'wmv' => 'video/x-ms-wmv',
         'wrl' => 'model/vrml',
         'xbm' => 'image/x-xbitmap',
         'xht' => 'application/xhtml+xml',
